@@ -849,7 +849,7 @@ class TestScheduler(TestCase):
         cases = [
             (None, row, False),
             # Across epilogue subtiles.
-            ((128, 32, 2), row, False),
+            ((128, 32, 2), row, True),
             # Across column tiles, only reductions that finish from partials fit.
             ((128, 32, 1), row, False),
             # A column read: (M, N) matches (N, M), but the read isn't row-major.
@@ -857,7 +857,11 @@ class TestScheduler(TestCase):
             ((128, N, 1), reduction(N * x + r, group=(M * N, 1)), False),
             ((128, N, 1), row, True),
         ]
-        with V.set_graph_handler(Mock(sizevars=SizeVarAllocator())):
+        with (
+            V.set_graph_handler(Mock(sizevars=SizeVarAllocator())),
+            # Meta automatic warp specialization rejects subtiled reductions.
+            patch("torch._inductor.codegen.simd.meta_ws_enabled", return_value=False),
+        ):
             for tile, node, expected in cases:
                 self.assertEqual(
                     tile_fits_reduction_epilogue(tile, template, [node]),
