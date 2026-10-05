@@ -998,6 +998,8 @@ def define_buck_targets(
         "torch/csrc/Exceptions.h",
         "torch/csrc/python_headers.h",
         "torch/csrc/jit/serialization/mobile_bytecode_generated.h",
+        # Kineto is built as its own library.
+        "torch/csrc/profiler/kineto/libkineto/**",
     ]
 
     # On Windows/MSVC, the ("", "torch/csrc/**/*.h") glob creates duplicate

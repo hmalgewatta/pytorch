@@ -139,6 +139,8 @@ ignores = [
     "torch/csrc/jit/codegen/fuser/cuda/resource_strings.h",
     "torch/csrc/jit/tensorexpr/ir_printer.cpp",
     "torch/csrc/jit/ir/ir.h",
+    # Kineto supports ROCm natively and was never hipified under third_party/
+    "torch/csrc/profiler/kineto/libkineto/*",
     # generated files we shouldn't frob
     "torch/lib/tmp_install/*",
     "torch/include/*",
@@ -177,6 +179,7 @@ hip_platform_files = [
     "third_party/gloo/cmake/Dependencies.cmake",
     "third_party/gloo/gloo/cuda.cu",
     "third_party/kineto/libkineto/CMakeLists.txt",
+    "torch/csrc/profiler/kineto/libkineto/CMakeLists.txt",
     "third_party/nvfuser/CMakeLists.txt",
     "third_party/tensorpipe/cmake/Hip.cmake",
 ]

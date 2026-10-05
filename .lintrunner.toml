@@ -100,6 +100,7 @@ exclude_patterns = [
     'torch/csrc/jit/serialization/mobile_bytecode_generated.h',
     'torch/csrc/utils/pythoncapi_compat.h',
     'aten/src/ATen/dlpack.h',
+    'torch/csrc/profiler/kineto/libkineto/**',
 ]
 init_command = [
     'python3',
@@ -278,6 +279,7 @@ exclude_patterns = [
     'torch/headeronly/util/irange.h',
     'torch/headeronly/util/MathConstants.h',
     'torch/headeronly/util/overflows.h',
+    'torch/csrc/profiler/kineto/libkineto/**',
 ]
 init_command = [
     'python3',
@@ -452,6 +454,7 @@ include_patterns=['**']
 exclude_patterns=[
     '**/contrib/**',
     'third_party/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
     '**/*.bat',
     '**/*.expect',
     '**/*.ipynb',
@@ -484,6 +487,7 @@ exclude_patterns = [
     '**/*.diff',
     '**/*.patch',
     'third_party/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
     'aten/src/ATen/native/vulkan/api/vk_mem_alloc.h',
     'fb/**',
     '**/fb/**',
@@ -512,6 +516,7 @@ exclude_patterns = [
     '**/*Makefile',
     '**/contrib/**',
     'third_party/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
     '**/.gitattributes',
     '**/.gitmodules',
     'fb/**',
@@ -600,6 +605,7 @@ exclude_patterns = [
     'c10/util/flat_hash_map.h',  # skarupke/flat_hash_map
     'third_party/concurrentqueue/**',
     'third_party/kineto/libkineto/third_party/**',  # Kineto's own third_party
+    'torch/csrc/profiler/kineto/libkineto/third_party/**',  # Kineto's own third_party
     'third_party/perfetto/sdk/**',  # amalgamated perfetto SDK
     # Fork of flat_hash_map. Also: at()'s out_of_range becomes KeyError in
     # jit/python/python_dict.cpp, so converting it breaks TorchScript dicts.
@@ -638,6 +644,7 @@ exclude_patterns = [
     '**/fb/**',
     'torch/csrc/jit/serialization/mobile_bytecode_generated.h',
     'torch/csrc/utils/pythoncapi_compat.h',
+    'torch/csrc/profiler/kineto/libkineto/**',
 ]
 command = [
     'python3',
@@ -811,6 +818,7 @@ code = 'EXEC'
 include_patterns = ['**']
 exclude_patterns = [
     'third_party/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
     'torch/bin/**',
     '**/*.so',
     '**/*.py',
@@ -895,6 +903,7 @@ exclude_patterns = [
     'c10/cuda/impl/CUDATest.cpp',
     'torch/csrc/cuda/nccl.cpp',
     '**/fb/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
 ]
 command = [
     'python3',
@@ -919,6 +928,7 @@ include_patterns = [
 exclude_patterns = [
     'tools/**',
     'third_party/kineto/libkineto/third_party/**',  # Kineto's own third_party
+    'torch/csrc/profiler/kineto/libkineto/third_party/**',  # Kineto's own third_party
     'test/**',
     'benchmarks/**',
     'torch/distributed/run.py',
@@ -1169,6 +1179,7 @@ include_patterns = [
 exclude_patterns = [
     'c10/util/CallOnce.h',
     '**/fb/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
 ]
 command = [
     'python3',
@@ -1188,6 +1199,9 @@ command = [
 code = 'CONTEXT_DECORATOR'
 include_patterns = [
     'torch/**',
+]
+exclude_patterns = [
+    'torch/csrc/profiler/kineto/libkineto/**',
 ]
 command = [
     'python3',
@@ -1214,6 +1228,7 @@ include_patterns = [
 ]
 exclude_patterns = [
     '**/fb/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
 ]
 command = [
     'python3',
@@ -1288,6 +1303,7 @@ exclude_patterns = [
     'fb/**',
     '**/fb/**',
     'third_party/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
     'test/cpython/**',
     'torch/_vendor/**',
     'torch/_inductor/fx_passes/serialized_patterns/**',
@@ -2081,6 +2097,7 @@ exclude_patterns = [
     'cmake/TorchConfigVersion.cmake.in',
     'cmake/cmake_uninstall.cmake.i',
     'third_party/**',
+    'torch/csrc/profiler/kineto/libkineto/**',
     'fb/**',
     '**/fb/**',
 ]
