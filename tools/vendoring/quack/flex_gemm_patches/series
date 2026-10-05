@@ -2,3 +2,4 @@
 0002-grouped-local-reduction-sinks.patch
 0003-caller-owned-grouped-layouts.patch
 0008-plain-varlen-k-epimod.patch
+0007-nested-fragment-tensorssa-composition.patch
